@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:instagram_clone/src/components/image.dart';
 import 'package:instagram_clone/src/controller/bottom_nav_controller.dart';
 
+import 'pages/home.dart';
+
 //currentIndex를 pageIndex로 설정하기 위해 , pageIndex에 접근 //true 이면 뒤로가기 버튼을 눌렀을 때 앱 종료
 class App extends GetView<BottomNavController> {
   const App({super.key});
@@ -13,24 +15,24 @@ class App extends GetView<BottomNavController> {
     return Obx(() => PopScope(
           canPop: false,
           child: Scaffold(
-            appBar: AppBar(),
             body: IndexedStack(
               index: controller.pageIndex.value,
               children: [
+                const Home(),
                 Container(
-                  child: Center(child: Text('HOME')),
+                  child: const Center(child: Text('HOME')),
                 ),
                 Container(
-                  child: Center(child: Text('SEARCH')),
+                  child: const Center(child: Text('SEARCH')),
                 ),
                 Container(
-                  child: Center(child: Text('UPLOAD')),
+                  child: const Center(child: Text('UPLOAD')),
                 ),
                 Container(
-                  child: Center(child: Text('ACTIVITY')),
+                  child: const Center(child: Text('ACTIVITY')),
                 ),
                 Container(
-                  child: Center(child: Text('MYPAGE')),
+                  child: const Center(child: Text('MYPAGE')),
                 ),
               ],
             ),
