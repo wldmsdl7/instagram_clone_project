@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:instagram_clone/src/pages/upload.dart';
 
@@ -6,6 +7,10 @@ enum PageName { HOME, SEARCH, UPLOAD, ACTIVITY, MYPAGE }
 class BottomNavController extends GetxController {
   //bottom에 있는 페이지 인덱스 관리
   RxInt pageIndex = 0.obs;
+
+  //Navigator key 관리
+  GlobalKey<NavigatorState> searchPageNaviationKey =
+      GlobalKey<NavigatorState>();
 
   void changeBottomNav(int value) {
     pageIndex(value);

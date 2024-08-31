@@ -4,6 +4,7 @@ import 'package:instagram_clone/src/components/image.dart';
 import 'package:instagram_clone/src/controller/bottom_nav_controller.dart';
 
 import 'pages/home.dart';
+import 'pages/search/search.dart';
 
 //currentIndex를 pageIndex로 설정하기 위해 , pageIndex에 접근 //true 이면 뒤로가기 버튼을 눌렀을 때 앱 종료
 class App extends GetView<BottomNavController> {
@@ -19,6 +20,15 @@ class App extends GetView<BottomNavController> {
               index: controller.pageIndex.value,
               children: [
                 const Home(),
+                //Search 화면일 때도 bottomnavigationbar 유지하기 위해 사용
+                Navigator(
+                  key: controller.searchPageNaviationKey,
+                  onGenerateRoute: (routeSetting) {
+                    return MaterialPageRoute(
+                      builder: (context) => const Search(),
+                    );
+                  },
+                ),
                 Container(
                   child: const Center(child: Text('HOME')),
                 ),
